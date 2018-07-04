@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Buscando alumno...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+</head>
+<body>
+	<input id="matricula">
+	<button type="button" onclick="buscaAlumno()">Buscar</button>
+	<p id="nombre"></p></form>
+	<p id="mat"></p></form>
+
+	<script>
+	function buscaAlumno() {
+    var matricula;
+
+    // obtiene el valor de la matricula del campo
+    matricula = document.getElementById("matricula").value;
+
+    // Valida el rango del valor
+    if (isNaN(matricula) || matricula < 1 || matricula > 1000) {
+    	document.getElementById("nombre").innerHTML = "Valor de matricula fuera de rango";
+    } else {
+    
+    	var xmlhttp = new XMLHttpRequest();
+	    xmlhttp.onreadystatechange = function() {
+    	    if (this.readyState == 4 && this.status == 200) {
+    	    	// Ya se recibio el resultado de la invocacion asincorna
+        	    var alumno = JSON.parse(this.responseText);
+            	document.getElementById("nombre").innerHTML = "Nombre del alumno:"+alumno.nombre;
+ 
+        	} else {
+        		document.getElementById("nombre").innerHTML = "El alumno no existe...";
+        	}
+    	};
+    	xmlhttp.open("GET", "alumnos/"+matricula, true);
+    	xmlhttp.send();
+    }
+}
+</script>
+</body>
+</html>

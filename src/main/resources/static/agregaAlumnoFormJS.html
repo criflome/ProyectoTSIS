@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tutorial Spring boot</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    
+</head>
+<body>
+<script>
+function enviaDatos(){    
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://localhost:8080/alumnos";
+    var params = '{"nombre":"'+document.getElementById("nombre").value+'","matricula":'+document.getElementById("matricula").value+'}';
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 201) {
+        	document.getElementById("respuesta").innerHTML="Alumno creado correctamente";
+        }else{
+        	document.getElementById("respuesta").innerHTML="Error al crear al Alumno";
+        }
+        
+    }
+    xmlhttp.open("POST", url, true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send(params);
+    
+}
+function cargaDatos(){    
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://localhost:8080/alumnos";
+
+    xmlhttp.onreadystatechange=function() {
+        if (this.readyState == 4 && this.status == 200){
+            myFunction(this.responseText);
+        }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table><th>Nombre</th><th>Matricula</th>";
+    for(i = 0; i < arr.length; i++) { 
+            out += "<tr><td>" +
+            arr[i].nombre +
+            "</td><td>" +
+            arr[i].matricula +
+            "</td></tr>";
+        
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+</script>
+	  <h1>Agregar alumno</h1>
+	  <div class="row">
+		  <div class="col-5">
+		  	Matricula:
+		  </div>
+		  <div class="col-10"> 
+		  	<input type="text" id="matricula">
+		  </div>
+	  </div>
+	  <div class="row">
+		  <div class="col-5">
+		  	Nombre:
+		  </div>
+		  <div class="col-10"> 
+		  	<input type="text" id="nombre">
+		  </div>
+	  </div>
+	  <br>
+	  <button onclick="enviaDatos()">Agregar</button>
+	  <br>
+	  <br>
+	<button onclick="cargaDatos()">Cargar/Actualizar datos</button>
+	<br>
+	<br>
+	<h3 id="respuesta"></h3>
+	<div id="id01"></div>
+</body>
+</html>

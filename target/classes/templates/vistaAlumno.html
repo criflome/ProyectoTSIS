@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<!--  https://spring.io/guides/gs/serving-web-content/ -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Datos del alumno</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    
+</head>
+<body>
+    <!-- Mapea hacia el controlador AlumnoController -->
+    <p th:text="'Nombre: ' + ${alumno.nombre} " />
+    <p th:text="'Matricula: ' + ${alumno.matricula} " />
+    
+    
+    
+</body>
+</html>
