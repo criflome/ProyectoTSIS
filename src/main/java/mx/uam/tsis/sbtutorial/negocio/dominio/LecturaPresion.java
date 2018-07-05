@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @author Cristian Lap
+ * @author Cristian 
  *
  */
 public class LecturaPresion {
