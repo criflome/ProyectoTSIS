@@ -6,6 +6,8 @@ package mx.uam.tsis.sbtutorial.negocio.dominio;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ import javax.persistence.Id;
  * @author Cristian 
  *
  */
+@Entity
 public class LecturaPresion {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,6 +25,12 @@ public class LecturaPresion {
 	private Date fecha;
 	private int pSintolica;
 	private int pDiastolica;
+	
+	/**
+	 * Columna para poder hacer la relacion @OnetoMany con la clase Paciente
+	 */
+	@Column(name="PacienteID")
+	private Long PacienteID;
 	
 	/**
 	 * Constructor vacío
