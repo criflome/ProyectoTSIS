@@ -15,11 +15,20 @@ public class PacienteService {
 	@Autowired
 	PacienteRepository repository;
 	
+	/**
+	 * Recupera todos los pacientes en la BD
+	 * @return
+	 */
 	public Collection<Paciente> getPacientes() {
 		// reglas de negocio se aplican aqui
 		return repository.findAll();
 	}
 	
+	/**
+	 * Agrega un pacente a la BD
+	 * @param paciente
+	 * @return
+	 */
 	public boolean addPaciente(Paciente paciente) {
 		if(repository.findByCorreo(paciente.getCorreo())==null) {
 			repository.save(paciente);
@@ -27,6 +36,19 @@ public class PacienteService {
 		}else {
 			return false;
 		}
+	}
+	
+	/**
+	 * Busque da de paciente por correo
+	 * @param correo
+	 * @return
+	 */
+	public Paciente getPaciente(String correo) {
+		return repository.findByCorreo(correo);
+	}
+	
+	public void deletePaciente(Paciente paciente) {
+		repository.delete(paciente);
 	}
 
 }

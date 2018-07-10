@@ -22,6 +22,7 @@ public class Paciente {
 	private String nombre;
 	private String apellidos;
 	private String correo;
+	private String contrasena;
 	private Long telefono_casa;
 	private Long telefono_mobil;
 	private String direccion;
@@ -42,10 +43,11 @@ public class Paciente {
 	 * @param Telefono_mobil
 	 * @param Direccion
 	 */
-	public Paciente(String Nombre, String Apellidos, String Correo, Long Telefono_casa, Long Telefono_mobil, String Direccion) {
+	public Paciente(String Nombre, String Apellidos, String Correo, String contrasena, Long Telefono_casa, Long Telefono_mobil, String Direccion) {
 		this.nombre = Nombre;
 		this.apellidos = Apellidos;
 		this.correo = Correo;
+		this.contrasena = contrasena;
 		this.telefono_casa = Telefono_casa;
 		this.telefono_mobil = Telefono_mobil;
 		this.direccion = Direccion;
@@ -70,6 +72,9 @@ public class Paciente {
 	public void setDireccion(String Direccion) {
 		this.direccion = Direccion;
 	}
+	public void setContrasena(String Contrasena) {
+		this.contrasena = Contrasena;
+	}
 	public List<LecturaPresion> getLecturas(){
 		return this.Lecturas;
 	}
@@ -93,5 +98,8 @@ public class Paciente {
 	}
 	public String getDireccion() {
 		return this.direccion;
+	}
+	public String getContrasena() {
+		return this.contrasena;
 	}
 }
