@@ -3,6 +3,7 @@ import java.util.Collection;
 import mx.uam.tsis.sbtutorial.negocio.dominio.Alumno;
 import mx.uam.tsis.sbtutorial.negocio.dominio.Grupo;
 import mx.uam.tsis.sbtutorial.negocio.dominio.LecturaPresion;
+import mx.uam.tsis.sbtutorial.negocio.dominio.Paciente;
 import mx.uam.tsis.sbtutorial.datos.GrupoRepository;
 import mx.uam.tsis.sbtutorial.datos.LecturaPresionRepository;
 import mx.uam.tsis.sbtutorial.datos.PacienteRepository;
@@ -16,6 +17,10 @@ public class LecturaPresionService {
 	LecturaPresionRepository repositoryPresion;
 	PacienteRepository repositoryPasiente;
 	
+	public boolean addLectura(LecturaPresion lectura) {
+		repositoryPresion.save(lectura);
+		return true;
+	}
 	/*public Collection<LecturaPresion> getPresion() {
 		// reglas de negocio se aplican aqui
 		return repositoryPasiente.

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import mx.uam.tsis.sbtutorial.datos.LecturaPresionRepository;
+import mx.uam.tsis.sbtutorial.negocio.LecturaPresionService;
 import mx.uam.tsis.sbtutorial.negocio.PacienteService;
 import mx.uam.tsis.sbtutorial.negocio.dominio.Grupo;
 import mx.uam.tsis.sbtutorial.negocio.dominio.LecturaPresion;
@@ -21,7 +23,7 @@ public class PacienteRestController {
 	
 	@Autowired
 	PacienteService servicio;
-	
+	LecturaPresionService servicioLecturaPresion;
 	/**
 	 * Metodo que regresa todos los pacientes
 	 * @return
@@ -83,6 +85,9 @@ public class PacienteRestController {
         //Obtenemos al paciente
 		Paciente paciente = servicio.getPaciente(correo);
         //Creamos el objeto presion
+		//Agregamos la lectura a la pase de datos
+		servicioLecturaPresion.addLectura(lectura);
+		
 		//LecturaPresion lecturaPresion = new LecturaPresion(pSintolica, pDiastolica);
 		//Agregamos la lectura
 		paciente.agregaLectura(lectura);
