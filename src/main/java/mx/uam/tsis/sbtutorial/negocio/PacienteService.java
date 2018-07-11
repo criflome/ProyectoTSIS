@@ -37,7 +37,24 @@ public class PacienteService {
 			return false;
 		}
 	}
-	
+	/**
+	 * @author Cristian Lap
+	 * Actualiza un pacente a la BD
+	 * @param paciente
+	 * @return true si actualizo, false en otro caso
+	 */
+	public boolean updatePaciente(Paciente paciente) {
+		//Busca que el paciente exista
+	/*	if (repository.findByCorreo(paciente.getCorreo()) != null) {
+			// Actualiza el paciente
+			repository.save(paciente);
+			return true;
+		} else {
+			return false;
+		}*/
+		repository.save(paciente);
+		return true;
+	}
 	/**
 	 * Busque da de paciente por correo
 	 * @param correo

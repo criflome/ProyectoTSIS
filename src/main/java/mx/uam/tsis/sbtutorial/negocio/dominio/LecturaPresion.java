@@ -30,7 +30,7 @@ public class LecturaPresion {
 	 * Columna para poder hacer la relacion @OnetoMany con la clase Paciente
 	 */
 	@Column(name="PacienteID")
-	private Long PacienteID;
+	private Long pacienteID;
 	
 	/**
 	 * Constructor vacío

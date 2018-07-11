@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.uam.tsis.sbtutorial.negocio.PacienteService;
+import mx.uam.tsis.sbtutorial.negocio.dominio.Grupo;
+import mx.uam.tsis.sbtutorial.negocio.dominio.LecturaPresion;
 import mx.uam.tsis.sbtutorial.negocio.dominio.Paciente;
 
 @RestController
@@ -72,6 +74,25 @@ public class PacienteRestController {
        	}else {
        		servicio.deletePaciente(paciente);
        		return new ResponseEntity<Paciente>(paciente, HttpStatus.OK);
+       	}
+    }
+	
+
+	@RequestMapping(value="/pacientes/{correo}/presion", method=RequestMethod.POST) //@RequestBody Grupo grupo   @PathVariable int pSintolica, @PathVariable int pDiastolica
+    public ResponseEntity<Paciente> agregaLectura(@PathVariable("correo")  String correo, @RequestBody LecturaPresion lectura ) {
+        //Obtenemos al paciente
+		Paciente paciente = servicio.getPaciente(correo);
+        //Creamos el objeto presion
+		//LecturaPresion lecturaPresion = new LecturaPresion(pSintolica, pDiastolica);
+		//Agregamos la lectura
+		paciente.agregaLectura(lectura);
+		//Actualizamos el repositorio
+		boolean retorno = servicio.updatePaciente(paciente);
+		
+       	if(retorno) {
+       		return new ResponseEntity<Paciente>(paciente, HttpStatus.OK);
+       	}else {
+       		return new ResponseEntity<Paciente>(paciente, HttpStatus.BAD_REQUEST);
        	}
     }
 
