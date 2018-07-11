@@ -75,9 +75,18 @@ public class Paciente {
 	public void setContrasena(String Contrasena) {
 		this.contrasena = Contrasena;
 	}
+	/**
+	 * Obtiene las lecturas de rpesion del paciente
+	 * @return List<LecturaPresion>
+	 */
 	public List<LecturaPresion> getLecturas(){
 		return this.Lecturas;
 	}
+	/**
+	 * Agrega el dato de una lectura de presión
+	 * @param Lectura
+	 * @return true si se agrego la lectura de presion, false en otro caso
+	 */
 	public boolean agregaLectura(LecturaPresion Lectura) {
 		return Lecturas.add(Lectura);
 	}

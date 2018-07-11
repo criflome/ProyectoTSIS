@@ -50,6 +50,16 @@ public class LecturaPresion {
 		this.pDiastolica = pDiastolica;
 	}
 
+	/**
+	 * Constructor sin fecha
+	 * @param fecha
+	 * @param pSintolica
+	 * @param pDiastolica
+	 */
+	public LecturaPresion(int pSintolica, int pDiastolica) {
+		this.pSintolica = pSintolica;
+		this.pDiastolica = pDiastolica;
+	}
 	
 	/**
 	 * Constructor completo
@@ -75,6 +85,34 @@ public class LecturaPresion {
 		//return "LecturaPresion [fecha=" + fecha + ", pSintolica=" + pSintolica + ", pDiastolica=" + pDiastolica + "]";
 		String fechaFormato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(fecha);
 		return  pSintolica + " sobre " + pDiastolica + "\t" + fechaFormato;
+	}
+
+	/**
+	 * @return the pSintolica
+	 */
+	public int getpSintolica() {
+		return pSintolica;
+	}
+
+	/**
+	 * @param pSintolica the pSintolica to set
+	 */
+	public void setpSintolica(int pSintolica) {
+		this.pSintolica = pSintolica;
+	}
+
+	/**
+	 * @return the pDiastolica
+	 */
+	public int getpDiastolica() {
+		return pDiastolica;
+	}
+
+	/**
+	 * @param pDiastolica the pDiastolica to set
+	 */
+	public void setpDiastolica(int pDiastolica) {
+		this.pDiastolica = pDiastolica;
 	}
 	
 	
