@@ -15,17 +15,17 @@ import org.springframework.stereotype.Service;
 public class LecturaPresionService {
 	@Autowired
 	LecturaPresionRepository repositoryPresion;
-	PacienteRepository repositoryPasiente;
+	
 	
 	public boolean addLectura(LecturaPresion lectura) {
 		repositoryPresion.save(lectura);
 		return true;
 	}
-	/*public Collection<LecturaPresion> getPresion() {
+	public Collection<LecturaPresion> getPresion() {
 		// reglas de negocio se aplican aqui
-		return repositoryPasiente.
+		return repositoryPresion.findAll();
 	}
-	public Grupo getGrupo(String clave) {
+	/*public Grupo getGrupo(String clave) {
 		// reglas de negocio se aplican aqui
 		return repository.findByClave(clave);
 	}

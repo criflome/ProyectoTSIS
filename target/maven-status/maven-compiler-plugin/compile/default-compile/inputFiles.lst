@@ -3,6 +3,7 @@
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/servicios/PacienteRestController.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/datos/AlumnoRepository.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/negocio/dominio/Medico.java
+/home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/negocio/LecturaPresionService.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/Application.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/negocio/MedicoService.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/datos/AlumnoDAOMemoria.java
@@ -15,6 +16,7 @@
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/datos/PacienteRepository.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/negocio/dominio/Grupo.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/presentacion/AlumnoController.java
+/home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/datos/LecturaPresionRepository.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/datos/GrupoRepository.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/negocio/dominio/Paciente.java
 /home/arturo/git/criflome/ProyectoTSIS/src/main/java/mx/uam/tsis/sbtutorial/servicios/AlumnoRestController.java

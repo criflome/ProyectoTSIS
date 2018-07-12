@@ -23,6 +23,8 @@ public class PacienteRestController {
 	
 	@Autowired
 	PacienteService servicio;
+	
+	@Autowired
 	LecturaPresionService servicioLecturaPresion;
 	/**
 	 * Metodo que regresa todos los pacientes
@@ -80,25 +82,34 @@ public class PacienteRestController {
     }
 	
 
-	@RequestMapping(value="/pacientes/{correo}/presion", method=RequestMethod.POST) //@RequestBody Grupo grupo   @PathVariable int pSintolica, @PathVariable int pDiastolica
-    public ResponseEntity<Paciente> agregaLectura(@PathVariable("correo")  String correo, @RequestBody LecturaPresion lectura ) {
+	@RequestMapping(value="/pacientes/{correo}/{pSintolica}/{pDiastolica}", method=RequestMethod.POST) //@RequestBody Grupo grupo   @PathVariable int pSintolica, @PathVariable int pDiastolica
+    public ResponseEntity<Paciente> agregaLectura(@PathVariable("correo") String correo, @PathVariable("pSintolica") int pSintolica, @PathVariable("pDiastolica") int pDiastolica) {
         //Obtenemos al paciente
 		Paciente paciente = servicio.getPaciente(correo);
-        //Creamos el objeto presion
+        LecturaPresion lectura = new LecturaPresion(pSintolica, pDiastolica);
+		//Creamos el objeto presion
 		//Agregamos la lectura a la pase de datos
 		servicioLecturaPresion.addLectura(lectura);
-		
-		//LecturaPresion lecturaPresion = new LecturaPresion(pSintolica, pDiastolica);
-		//Agregamos la lectura
-		paciente.agregaLectura(lectura);
-		//Actualizamos el repositorio
-		boolean retorno = servicio.updatePaciente(paciente);
-		
-       	if(retorno) {
-       		return new ResponseEntity<Paciente>(paciente, HttpStatus.OK);
+		if(paciente==null || lectura==null) {
+       		return new ResponseEntity<Paciente>(paciente, HttpStatus.NOT_FOUND);
        	}else {
-       		return new ResponseEntity<Paciente>(paciente, HttpStatus.BAD_REQUEST);
+			//LecturaPresion lecturaPresion = new LecturaPresion(pSintolica, pDiastolica);
+			//Agregamos la lectura
+			paciente.agregaLectura(lectura);
+			//Actualizamos el repositorio
+			boolean retorno = servicio.updatePaciente(paciente);
+			
+	       	if(retorno) {
+	       		return new ResponseEntity<Paciente>(paciente, HttpStatus.OK);
+	       	}else {
+	       		return new ResponseEntity<Paciente>(paciente, HttpStatus.BAD_REQUEST);
+	       	}
        	}
+    }
+	
+	@RequestMapping(value="/lecturas", method=RequestMethod.GET)
+    public Collection<LecturaPresion> dameLecturas() {
+       	return servicioLecturaPresion.getPresion();
     }
 
 }
