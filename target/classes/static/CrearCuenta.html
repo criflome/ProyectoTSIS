@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>Restaurant Aquamarine - Pingendo template</title>
+  <meta name="description" content="Free Bootstrap 4 Pingendo Aquamarine template for restaurant and food">
+  <meta name="keywords" content="Pingendo restaurant food aquamarine free template bootstrap 4">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="aquamarine.css" type="text/css">
+  <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+  <script src="js/navbar-ontop.js"></script>
+  <!-- Script: Animated entrance -->
+  <script src="js/animate-in.js"></script>
+</head>
+
+<body class="">
+
+<script>
+function enviaDatos(){
+	var nom;
+	var ap;
+	var cor;
+	var con;
+	var telc;
+	var telm;
+	var dir;
+	nom=document.getElementById("firstname").value;
+	ap=document.getElementById("lastname").value;
+	cor=document.getElementById("mail").value;
+	con=document.getElementById("pass").value;
+	telc=document.getElementById("phone").value;
+	telm==document.getElementById("mphone").value;
+	dir=document.getElementById("address").value;
+    var xmlhttp = new XMLHttpRequest();
+    //var url = "http://localhost:8080/pacientes";
+    //var params = JSON.stringify({"nombre":nom,"matricula":ap});
+    var params = JSON.stringify({"nombre":nom,"apellidos":ap,"correo":cor,"contrasena":con,"telefono_casa":telc,"telefono_mobil":telm,"direccion":dir});
+    //var params = JSON.stringify({"nombre":"Arana","apellidos":"Maray","correo":"zopius@gmail.com","contrasena":"123","telefono_casa":123428,"telefono_mobil":171457,"direccion":"akididi"});
+    xmlhttp.onreadystatechange = function() {
+        if(this.readyState == 4 && this.status == 201) {
+        	alert("Creado");
+        }else{
+        	alert("No Creado");
+        }
+        
+    };
+    xmlhttp.open("POST", "pacientes", true);
+    xmlhttp.setRequestHeader("Content-type", "application/json");
+    xmlhttp.send(params);
+    
+}
+</script>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar3SupportedContent" aria-controls="navbar3SupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-center justify-content-center" id="navbar3SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-3">
+            <a class="nav-link text-light" href="#">
+              <img class="d-block img-fluid" src="assets/image/1308159426265.gif" width="90"> </a>
+          </li>
+          <li class="nav-item my-2">
+            <a class="nav-link text-light" href="#">
+              <b class="">INICIO
+                <br> </b>
+            </a>
+          </li>
+          <li class="nav-item my-2">
+            <a class="nav-link" href="#menu">
+              <b class="my-2">MENU</b>
+            </a>
+          </li>
+          <li class="nav-item my-2">
+            <a class="nav-link" href="#venue">
+              <img class="img-fluid d-block" src="assets/image/facebook.png"> </a>
+          </li>
+          <li class="nav-item my-2">
+            <a class="nav-link" href="#venue">
+              <img class="img-fluid d-block" src="assets/image/twitter.png"> </a>
+          </li>
+          <li class="nav-item my-2">
+            <a class="nav-link" href="#venue">
+              <img class="img-fluid d-block" src="assets/image/youtube.png"> </a>
+          </li>
+        </ul>
+        <a class="btn navbar-btn btn-secondary mx-2" href="#book">
+          <b>Registrarse
+            <br> </b>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- Cover -->
+  <!-- Intro -->
+  <!-- Gallery -->
+  <!-- Menu -->
+  <!-- Carousel reviews -->
+  <!-- Carousel venue -->
+  <!-- Events -->
+  <!-- Parallax section -->
+  <div class="py-5 photo-overlay" id="book" style="background-image: url(&quot;assets/image/med.jpg&quot;);">
+    <div class="container">
+      <div class="row my-5">
+        <div class="col-lg-12 mx-auto p-3 animate-in-down">
+           <div class="bg-light w-75 h-100 mx-5 p-5 inset-shadowed">
+            <h2 class="mb-4 text-center bg-secondary">Crea una Cuenta Paciente
+              <br> </h2>
+            <p class="my-4">Por favor proporcione la informacion requerida</p>
+            <div class="form-group">
+              <label>Nombre(s)</label>
+              <input id="firstname" class="form-control" placeholder="p. ej. Rubén" type="text"> </div>
+            <div class="form-group">
+              <label>Apellidos</label>
+              <input id="lastname" class="form-control" placeholder="p. ej. Cruz Lara" type="text"> </div>
+            <div class="form-group">
+              <label>Correo</label>
+              <input id="mail" class="form-control" placeholder="p. ej. ejemplo@correo.com" type="text"> </div>
+               <div class="form-group">
+              <label>Contraseña</label>
+              <input id="pass" class="form-control" type="text"></div>
+            <div class="form-group">
+              <label>Telefono Casa</label>
+              <input id="phone" class="form-control" placeholder="p. ej. 64897412" type="text"> </div>
+            <div class="form-group">
+              <label>Telefono Movil</label>
+              <input id="mphone" class="form-control" placeholder="p. ej. 5578123894" type="text"> </div>
+            <div class="form-group">
+              <label>Direccion</label>
+              <input id="address" class="form-control" placeholder="Direccion" type="text"> </div>
+            <button onclick="enviaDatos()" class="btn mt-4 btn-block p-2 btn-primary">
+              <b>Crear cuenta </b>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="text-center bg-dark pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 p-3">
+          <h2 class="mb-4">Contacto</h2>
+          <p class="m-0">
+            <a href="tel:+246 - 542 550 5462" class="text-white">+246 - 542 550 5462</a>
+          </p>
+          <p>
+            <a href="mailto:info@uam.tsis.com" class="text-white">info@uam.tsis.com</a>
+          </p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h2 class="mb-4">Direccion
+            <br>
+          </h2>
+          <p>
+            <a href="https://www.google.it/maps" target="blank" class="text-white">23 Fake Street
+              <br>U</a>AM Iztapalapa</p>
+        </div>
+        <div class="col-md-4 p-3">
+          <h2 class="mb-4">Horarios
+            <br> </h2>
+          <p>11:00 - 15:00 &amp; 19:00 - 00:00 Jueves/Viernes&nbsp;
+            <br>11:00 - 15:00 &amp; 19:00 - 02:00 Sabado/Domingo</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <p class="text-center text-muted">© Copyright 2018 Pingendo - Vista Creada con Pingendo. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript dependencies -->
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Script: Smooth scrolling between anchors in the same page -->
+  <script src="js/smooth-scroll.js" class="section-dark"></script>
+  
+</body>
+
+</html>

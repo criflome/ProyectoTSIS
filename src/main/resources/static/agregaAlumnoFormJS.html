@@ -13,6 +13,7 @@ function enviaDatos(){
     var url = "http://localhost:8080/alumnos";
     var params = '{"nombre":"'+document.getElementById("nombre").value+'","matricula":'+document.getElementById("matricula").value+'}';
     xmlhttp.onreadystatechange = function() {
+    	alert(this.readyState+" "+this.status);
         if(this.readyState == 4 && this.status == 201) {
         	document.getElementById("respuesta").innerHTML="Alumno creado correctamente";
         }else{
