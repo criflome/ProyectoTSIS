@@ -55,9 +55,9 @@ public class PacienteRestController {
 	 * @param correo
 	 * @return
 	 */
-	@RequestMapping(value="/pacientes/{correo}", method=RequestMethod.GET)
-    public ResponseEntity<Paciente> buscaPaciente(@PathVariable String correo) {
-        Paciente paciente = servicio.getPaciente(correo);
+	@RequestMapping(value="/pacientes/{correo}/{contrasena}", method=RequestMethod.GET)
+    public ResponseEntity<Paciente> buscaPaciente(@PathVariable("correo") String correo, @PathVariable("contrasena") String contrasena) {
+        Paciente paciente = servicio.sesion(correo, contrasena);
        	if(paciente==null) {
        		return new ResponseEntity<Paciente>(paciente, HttpStatus.NOT_FOUND);
        	}else {

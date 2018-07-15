@@ -44,9 +44,11 @@ function enviaDatos(){
     //var params = JSON.stringify({"nombre":"Arana","apellidos":"Maray","correo":"zopius@gmail.com","contrasena":"123","telefono_casa":123428,"telefono_mobil":171457,"direccion":"akididi"});
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 201) {
-        	alert("Creado");
+        	var usuario = this.responseText;
+        	var encodedString = btoa(usuario);
+        	window.location.href = 'ControlCuenta.html?data='+encodedString;
         }else{
-        	alert("No Creado");
+        	//alert("No Creado");
         }
         
     };

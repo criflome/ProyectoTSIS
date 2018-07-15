@@ -10,5 +10,7 @@ public interface PacienteRepository extends CrudRepository<Paciente, Long> {
 	Paciente findByCorreo(String Correo);
 	
 	Collection<Paciente> findAll();
+	
+	Paciente findByCorreoAndContrasena(String correo, String Contrasena);
 
 }

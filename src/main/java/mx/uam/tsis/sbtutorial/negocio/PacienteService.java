@@ -64,6 +64,10 @@ public class PacienteService {
 		return repository.findByCorreo(correo);
 	}
 	
+	public Paciente sesion(String correo, String contrasena) {
+		return repository.findByCorreoAndContrasena(correo, contrasena);
+	}
+	
 	public void deletePaciente(Paciente paciente) {
 		repository.delete(paciente);
 	}
