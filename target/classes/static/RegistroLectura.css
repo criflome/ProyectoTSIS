@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,body {
+  height: 100%;
+}
+body {
+  background: lightblue;
+  font-size: 16px;
+  color: #fff;
+}
+.forma{
+	color: black;
+	 font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 12px;
+	padding: 50px;
+}
+.reproductor{
+	color: black;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+@viewport{
+    zoom: 1.0;
+    width: device-width;
+}
+
+.encabezado{
+	color: black;
+	border-radius: 15px 50px 30px;
+    background: Lightgrey;
+    padding: 20px; 
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+
+}
+.widget {
+  width: 40%;
+  height: 40%;
+  float: right;
+  
+}
+.widget p {
+  display: inline-block;
+  line-height: 1em;
+}
+.fecha {
+  font-family: arial;
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 5px;
+  background: rgba(0,0,0,.5);
+  padding: 20px;
+  width: 100%;
+}
+.reloj {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  width: 100%;
+  padding: 20px;
+  font-size: 4em;
+  text-align: center;
+  background: rgba(0,0,0,.5);
+}
+.reloj .cajaSegundos {
+  display: inline-block;  
+}
+.reloj .ampm, .reloj .segundos{
+  display: block;
+  font-size: 2rem;
+}
