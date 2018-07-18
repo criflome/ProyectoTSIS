@@ -19,6 +19,7 @@
   <script src="js/animate-in.js"></script>
 </head>
 <script>
+var usuario = JSON.parse(atob(getParameterByName('data')));
 function getParameterByName(name, url) {
 	if (!url) url = window.location.href;
 	name = name.replace(/[\[\]]/g, '\\$&');
@@ -28,8 +29,12 @@ function getParameterByName(name, url) {
 	return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function VentanaLecturas(){
+	var encodedString = btoa(JSON.stringify(usuario));
+	window.location.href = 'RegistroLectura.html?data='+encodedString;
+}
+
 function cargar(){
-	var usuario = JSON.parse(atob(getParameterByName('data')));
 	document.getElementById("nombre").innerHTML = usuario.nombre + " " + usuario.apellidos;
 }
 </script>
@@ -84,7 +89,7 @@ function cargar(){
                   <a class="btn btn-primary btn-lg" href="#">Editar datos</a>
                 </div>
                 <div class="col-md-4">
-                  <a class="btn btn-primary btn-lg" href="#">Registrar lectura</a>
+                  <a class="btn btn-primary btn-lg" onclick="VentanaLecturas()">Registrar lectura</a>
                 </div>
                 <div class="col-md-3">
                   <a class="btn btn-primary btn-lg align-self-center" href="#">Historial de lecturas</a>
