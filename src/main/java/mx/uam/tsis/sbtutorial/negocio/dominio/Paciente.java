@@ -21,11 +21,18 @@ public class Paciente {
 	
 	private String nombre;
 	private String apellidos;
+
 	private String correo;
 	private String contrasena;
 	private Long telefono_casa;
 	private Long telefono_mobil;
 	private String direccion;
+
+	private float promedioPSintolica;
+	private float promedioPDiastolica;
+	
+	private String genero;
+	private int edad;
 	//private List<Medico> Medicos;
 	
 	@OneToMany
@@ -34,25 +41,68 @@ public class Paciente {
 	
 	public Paciente() {}
 	
+	
+	
 	/**
-	 * Constructor de Registro de Pacientes
-	 * @param Nombre
-	 * @param Apellidos
-	 * @param Correo
-	 * @param Telefono_casa
-	 * @param Telefono_mobil
-	 * @param Direccion
+	 * COnstructor de la clase paciente
+	 * @param nombre
+	 * @param apellidos
+	 * @param genero
+	 * @param edad
+	 * @param correo
+	 * @param contrasena
+	 * @param telefono_casa
+	 * @param telefono_mobil
+	 * @param direccion
 	 */
-	public Paciente(String Nombre, String Apellidos, String Correo, String contrasena, Long Telefono_casa, Long Telefono_mobil, String Direccion) {
-		this.nombre = Nombre;
-		this.apellidos = Apellidos;
-		this.correo = Correo;
+	public Paciente(String nombre, String apellidos, String genero, int edad, String correo, String contrasena,
+			Long telefono_casa, Long telefono_mobil, String direccion) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.genero = genero;
+		this.edad = edad;
+		this.correo = correo;
 		this.contrasena = contrasena;
-		this.telefono_casa = Telefono_casa;
-		this.telefono_mobil = Telefono_mobil;
-		this.direccion = Direccion;
-		Lecturas =  new ArrayList<LecturaPresion>();
+		this.telefono_casa = telefono_casa;
+		this.telefono_mobil = telefono_mobil;
+		this.direccion = direccion;
+		this.Lecturas = new ArrayList<LecturaPresion> ();
 	}
+
+
+	/**
+	 * Actualiza el promedio de las presiones
+	 */
+	public void setPromedios() {
+		float pSintolica=0;
+		float pDiastolica=0;
+		float n = (float)Lecturas.size();
+		
+		for (LecturaPresion presiones: Lecturas) {
+		    pSintolica= pSintolica + presiones.getpSintolica();
+		    pDiastolica = pDiastolica + presiones.getpDiastolica();
+		}	
+		this.promedioPSintolica = pSintolica / n;
+		this.promedioPDiastolica = pDiastolica / n;
+		
+	}
+	/**
+	 * Obtiene el promedio de la lecutra de presion Sintolica
+	 * @return
+	 */
+	public float getPromedioPSintolica() {
+		return this.promedioPSintolica;
+	}
+	
+	/**
+	 * Obtiene el promedio de la lecutra de presion Diastolica
+	 * @return
+	 */
+	public float getPromedioPDiastolica() {
+		return this.promedioPDiastolica;
+	}
+	
+	
 	
 	public void setNombre(String Nombre) {
 		this.nombre = Nombre;
@@ -111,4 +161,41 @@ public class Paciente {
 	public String getContrasena() {
 		return this.contrasena;
 	}
+
+
+
+	/**
+	 * @return the genero
+	 */
+	public String getGenero() {
+		return genero;
+	}
+
+
+
+	/**
+	 * @return the edad
+	 */
+	public int getEdad() {
+		return edad;
+	}
+
+
+
+	/**
+	 * @param genero the genero to set
+	 */
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+
+	/**
+	 * @param edad the edad to set
+	 */
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
 }
