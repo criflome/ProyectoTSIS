@@ -32,6 +32,8 @@ function enviaDatos(){
 	var dir;
 	nom=document.getElementById("firstname").value;
 	ap=document.getElementById("lastname").value;
+	gen=document.getElementById("genero").value;
+	ed=document.getElementById("edad").value;
 	cor=document.getElementById("mail").value;
 	con=document.getElementById("pass").value;
 	telc=document.getElementById("phone").value;
@@ -40,7 +42,7 @@ function enviaDatos(){
     var xmlhttp = new XMLHttpRequest();
     //var url = "http://localhost:8080/pacientes";
     //var params = JSON.stringify({"nombre":nom,"matricula":ap});
-    var params = JSON.stringify({"nombre":nom,"apellidos":ap,"correo":cor,"contrasena":con,"telefono_casa":telc,"telefono_mobil":telm,"direccion":dir});
+    var params = JSON.stringify({"nombre":nom,"apellidos":ap,"genero":gen,"edad":ed,"correo":cor,"contrasena":con,"telefono_casa":telc,"telefono_mobil":telm,"direccion":dir});
     //var params = JSON.stringify({"nombre":"Arana","apellidos":"Maray","correo":"zopius@gmail.com","contrasena":"123","telefono_casa":123428,"telefono_mobil":171457,"direccion":"akididi"});
     xmlhttp.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 201) {
@@ -126,16 +128,22 @@ function enviaDatos(){
               <input id="lastname" class="form-control" placeholder="p. ej. Cruz Lara" type="text"> </div>
             <div class="form-group">
               <label>Correo</label>
-              <input id="mail" class="form-control" placeholder="p. ej. ejemplo@correo.com" type="text"> </div>
-               <div class="form-group">
+              <input id="mail" class="form-control" placeholder="p. ej. ejemplo@correo.com" type="email"> </div>
+            <div class="form-group">
+              <label>Genero</label>
+              <input id="genero" class="form-control" placeholder="Hombre, Mujer, Otro" type="text"> </div>
+            <div class="form-group">
+              <label>Edad</label>
+              <input id="edad" class="form-control" type="number"> </div>
+            <div class="form-group">
               <label>Contraseña</label>
-              <input id="pass" class="form-control" type="text"></div>
+              <input id="pass" class="form-control" type="password"></div>
             <div class="form-group">
               <label>Telefono Casa</label>
-              <input id="phone" class="form-control" placeholder="p. ej. 64897412" type="text"> </div>
+              <input id="phone" class="form-control" placeholder="p. ej. 64897412" type="number"> </div>
             <div class="form-group">
               <label>Telefono Movil</label>
-              <input id="mphone" class="form-control" placeholder="p. ej. 5578123894" type="text"> </div>
+              <input id="mphone" class="form-control" placeholder="p. ej. 5578123894" type="number"> </div>
             <div class="form-group">
               <label>Direccion</label>
               <input id="address" class="form-control" placeholder="Direccion" type="text"> </div>

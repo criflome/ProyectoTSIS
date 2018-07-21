@@ -35,7 +35,9 @@ function VentanaLecturas(){
 }
 
 function cargar(){
-	document.getElementById("nombre").innerHTML = usuario.nombre + " " + usuario.apellidos;
+	document.getElementById("nombre").innerHTML = "Nombre: " + usuario.nombre + " " + usuario.apellidos;
+	document.getElementById("genero").innerHTML = "Genero: " + usuario.genero;
+	document.getElementById("edad").innerHTML = "Edad: " + usuario.edad;
 }
 </script>
 <body class="" onload="cargar()">
@@ -82,6 +84,8 @@ function cargar(){
           <div class="row section-light">
             <div class="col-md-6">
               <h1 id="nombre"></h1>
+              <h2 id="genero"></h2>
+              <h2 id="edad"></h2>
             </div>
             <div class="bg-light col-md-10 col-lg-10">
               <div class="row">
