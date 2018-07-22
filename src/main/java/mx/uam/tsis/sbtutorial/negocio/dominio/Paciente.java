@@ -68,7 +68,20 @@ public class Paciente {
 		this.direccion = direccion;
 		this.Lecturas = new ArrayList<LecturaPresion> ();
 	}
-
+	
+	/**
+	 * Obtiene en un String todas las lecturas
+	 */
+	public String getLecturasString() {
+		String aux = " ";
+	
+		for (LecturaPresion presiones: Lecturas) {
+			aux = aux + presiones.toString() + "\n";
+		    
+		}	
+		return aux;
+		
+	}
 
 	/**
 	 * Actualiza el promedio de las presiones

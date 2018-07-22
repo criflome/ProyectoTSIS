@@ -80,11 +80,15 @@ public class LecturaPresion {
 	 * toString para desplegar los datos deacuerdo a la logica del negocio
 	 * @see java.lang.Object#toString()
 	 */
-	@Override
 	public String toString() {
 		//return "LecturaPresion [fecha=" + fecha + ", pSintolica=" + pSintolica + ", pDiastolica=" + pDiastolica + "]";
-		String fechaFormato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(fecha);
-		return  pSintolica + " sobre " + pDiastolica + "\t" + fechaFormato;
+		if (fecha == null) {
+				return  pSintolica + " sobre " + pDiastolica;
+		}else {
+			String fechaFormato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(fecha);
+			return  pSintolica + " sobre " + pDiastolica + "\t" + fechaFormato;
+		}
+		
 	}
 
 	/**

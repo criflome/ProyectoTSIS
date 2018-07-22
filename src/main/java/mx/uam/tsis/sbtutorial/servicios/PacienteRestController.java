@@ -82,6 +82,13 @@ public class PacienteRestController {
     }
 	
 
+	/**
+	 * (POST) Agrega Lectura presion del paciente
+	 * @param correo
+	 * @param pSintolica
+	 * @param pDiastolica
+	 * @return Paciente
+	 */
 	@RequestMapping(value="/pacientes/{correo}/{pSintolica}/{pDiastolica}", method=RequestMethod.POST) //@RequestBody Grupo grupo   @PathVariable int pSintolica, @PathVariable int pDiastolica
     public ResponseEntity<Paciente> agregaLectura(@PathVariable("correo") String correo, @PathVariable("pSintolica") int pSintolica, @PathVariable("pDiastolica") int pDiastolica) {
         //Obtenemos al paciente
@@ -114,4 +121,31 @@ public class PacienteRestController {
        	return servicioLecturaPresion.getPresion();
     }
 
+	/**
+	 * Metodo para obtener la lista de objetos Lectura Presion del paciente por correo
+	 * @author Cristian
+	 * @param correo
+	 * @return
+	 */
+	@RequestMapping(value="/pacientes/{correo}/lecturas", method=RequestMethod.GET)
+    public Collection <LecturaPresion> getLecturas(@PathVariable String correo) {
+        Paciente paciente = servicio.getPaciente(correo);
+		return paciente.getLecturas();
+    
+    }
+	/**
+	 * Metodo para obtener en un string la lista de Lectura Presion del paciente por correo
+	 * @author Cristian
+	 * @param correo
+	 * @return
+	 */
+	@RequestMapping(value="/pacientes/{correo}/lecturasString", method=RequestMethod.GET)
+    public ResponseEntity<String> getLecturasString(@PathVariable String correo) {
+        Paciente paciente = servicio.getPaciente(correo);
+        System.out.println(paciente.getLecturasString());
+		String aux = paciente.getLecturasString();
+		
+		return new ResponseEntity<String>(aux, HttpStatus.OK);
+    
+    }
 }
