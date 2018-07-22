@@ -96,6 +96,8 @@ public class PacienteRestController {
 			//LecturaPresion lecturaPresion = new LecturaPresion(pSintolica, pDiastolica);
 			//Agregamos la lectura
 			paciente.agregaLectura(lectura);
+			//Actualiza los promedios de la presion
+			paciente.setPromedios();
 			//Actualizamos el repositorio
 			boolean retorno = servicio.updatePaciente(paciente);
 			

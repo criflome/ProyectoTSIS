@@ -15,6 +15,9 @@ public class PacienteService {
 	@Autowired
 	PacienteRepository repository;
 	
+	
+
+	
 	/**
 	 * Recupera todos los pacientes en la BD
 	 * @return
