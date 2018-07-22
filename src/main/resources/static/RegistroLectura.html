@@ -17,28 +17,7 @@
   <script src="js/navbar-ontop.js"></script>
   <!-- Script: Animated entrance -->
   <script src="js/animate-in.js"></script>
-  <script>
-    var usuario = JSON.parse(atob(getParameterByName('data')));
-    function getParameterByName(name, url) {
-    	if (!url) url = window.location.href;
-    	name = name.replace(/[\[\]]/g, '\\$&');
-    	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),results = regex.exec(url);
-    	if (!results) return null;
-    	if (!results[2]) return '';
-    	return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-    
-    function VentanaLecturas(){
-    	var encodedString = btoa(JSON.stringify(usuario));
-    	window.location.href = 'RegistroLectura.html?data='+encodedString;
-    }
-    
-    function cargar(){
-    	document.getElementById("nombre").innerHTML = "Nombre: " + usuario.nombre + " " + usuario.apellidos;
-    	document.getElementById("genero").innerHTML = "Genero: " + usuario.genero;
-    	document.getElementById("edad").innerHTML = "Edad: " + usuario.edad;
-    }
-  </script>
+  
 </head>
 
 <body class="" onload="cargar()">
