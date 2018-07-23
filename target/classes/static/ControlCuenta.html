@@ -34,6 +34,11 @@ function VentanaLecturas(){
 	window.location.href = 'RegistroLectura.html?data='+encodedString;
 }
 
+function VentanaHistorial(){
+	var encodedString = btoa(JSON.stringify(usuario));
+	window.location.href = 'ConsultaPaciente.html?data='+encodedString;
+}
+
 function cargar(){
 	document.getElementById("nombre").innerHTML = "Nombre: " + usuario.nombre + " " + usuario.apellidos;
 	document.getElementById("genero").innerHTML = "Genero: " + usuario.genero;
@@ -96,7 +101,7 @@ function cargar(){
                   <a class="btn btn-primary btn-lg" onclick="VentanaLecturas()">Registrar lectura</a>
                 </div>
                 <div class="col-md-3">
-                  <a class="btn btn-primary btn-lg align-self-center" href="#">Historial de lecturas</a>
+                  <a class="btn btn-primary btn-lg align-self-center" onclick="VentanaHistorial()">Historial de lecturas</a>
                 </div>
               </div>
             </div>
