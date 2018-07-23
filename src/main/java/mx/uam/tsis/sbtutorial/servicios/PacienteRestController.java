@@ -51,6 +51,23 @@ public class PacienteRestController {
     }
 	
 	/**
+	 * Obtiene un paciente por correo
+	 * @param correo
+	 * @return Paciente
+	 * @author Cristian 
+	 */
+	@RequestMapping(value="/pacientes/{correo}", method=RequestMethod.GET)
+    public ResponseEntity<Paciente> getPaciente(@PathVariable("correo") String correo) {
+        Paciente paciente = servicio.getPaciente(correo);
+        
+       	if(paciente==null) {
+       		return new ResponseEntity<Paciente>(paciente, HttpStatus.NOT_FOUND);
+       	}else {
+       		return new ResponseEntity<Paciente>(paciente, HttpStatus.OK);
+       	}
+    }
+	
+	/**
 	 * Busque da de paciente por correo
 	 * @param correo
 	 * @return
