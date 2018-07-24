@@ -156,7 +156,7 @@ public class PacienteRestController {
 	 * @param correo
 	 * @return
 	 */
-	@RequestMapping(value="/pacientes/{correo}/lecturasString", method=RequestMethod.GET)
+	/*@RequestMapping(value="/pacientes/{correo}/lecturasString", method=RequestMethod.GET)
     public ResponseEntity<String> getLecturasString(@PathVariable String correo) {
         Paciente paciente = servicio.getPaciente(correo);
         System.out.println(paciente.getLecturasString());
@@ -164,5 +164,5 @@ public class PacienteRestController {
 		
 		return new ResponseEntity<String>(aux, HttpStatus.OK);
     
-    }
+    }*/
 }

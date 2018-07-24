@@ -72,7 +72,7 @@ public class Paciente {
 	/**
 	 * Obtiene en un String todas las lecturas
 	 */
-	public String getLecturasString() {
+	/*public String getLecturasString() {
 		String aux = " ";
 	
 		for (LecturaPresion presiones: Lecturas) {
@@ -81,7 +81,7 @@ public class Paciente {
 		}	
 		return aux;
 		
-	}
+	}*/
 
 	/**
 	 * Actualiza el promedio de las presiones
