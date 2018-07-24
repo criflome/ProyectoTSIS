@@ -22,6 +22,32 @@
 <body class="">
 
 <script>
+function validateN(event) {
+    var key = window.event ? event.keyCode : event.which;
+
+if (event.keyCode == 8 || event.keyCode == 46
+ || event.keyCode == 37 || event.keyCode == 39) {
+    return true;
+}
+else if ( key < 48 || key > 57 ) {
+    return false;
+}
+else return true;
+};
+
+function validateL(event) {
+    var key = window.event ? event.keyCode : event.which;
+
+if (event.keyCode == 8 || event.keyCode == 46
+ || event.keyCode == 37 || event.keyCode == 39) {
+    return true;
+}
+else if ((key < 97 || key > 122) && ( key < 65 || key > 90) && (key < 32 || key > 32)) {
+    return false;
+}
+else return true;
+};
+
 function enviaDatos(){
 	var nom;
 	var ap;
@@ -37,7 +63,7 @@ function enviaDatos(){
 	cor=document.getElementById("mail").value;
 	con=document.getElementById("pass").value;
 	telc=document.getElementById("phone").value;
-	telm==document.getElementById("mphone").value;
+	telm=document.getElementById("mphone").value;
 	dir=document.getElementById("address").value;
     var xmlhttp = new XMLHttpRequest();
     //var url = "http://localhost:8080/pacientes";
@@ -74,21 +100,21 @@ function enviaDatos(){
               <img class="d-block img-fluid" src="assets/image/1308159426265.gif" width="90"> </a>
           </li>
           <li class="nav-item my-2">
-            <a class="nav-link text-light" href="#">
+            <a class="nav-link text-dark" href="index.html">
               <b class="">INICIO
                 <br> </b>
             </a>
           </li>
           <li class="nav-item my-2">
-            <a class="nav-link" href="#venue">
+            <a class="nav-link" href="https://www.facebook.com/uam.mx/">
               <img class="img-fluid d-block" src="assets/image/facebook.png"> </a>
           </li>
           <li class="nav-item my-2">
-            <a class="nav-link" href="#venue">
+            <a class="nav-link" href="https://twitter.com/uam_iztapalapa?lang=es">
               <img class="img-fluid d-block" src="assets/image/twitter.png"> </a>
           </li>
           <li class="nav-item my-2">
-            <a class="nav-link" href="#venue">
+            <a class="nav-link" href="https://www.youtube.com/user/UAMVIDEOS">
               <img class="img-fluid d-block" src="assets/image/youtube.png"> </a>
           </li>
         </ul>
@@ -117,28 +143,28 @@ function enviaDatos(){
             <p class="my-4">Por favor proporcione la informacion requerida</p>
             <div class="form-group">
               <label>Nombre(s)</label>
-              <input id="firstname" class="form-control" placeholder="p. ej. Rubén" type="text"> </div>
+              <input id="firstname" class="form-control" placeholder="p. ej. Rubén" type="text" onkeypress='return validateL(event);'> </div>
             <div class="form-group">
               <label>Apellidos</label>
-              <input id="lastname" class="form-control" placeholder="p. ej. Cruz Lara" type="text"> </div>
+              <input id="lastname" class="form-control" placeholder="p. ej. Cruz Lara" type="text" onkeypress='return validateL(event);'> </div>
             <div class="form-group">
               <label>Correo</label>
               <input id="mail" class="form-control" placeholder="p. ej. ejemplo@correo.com" type="email"> </div>
             <div class="form-group">
               <label>Genero</label>
-              <input id="genero" class="form-control" placeholder="Hombre, Mujer, Otro" type="text"> </div>
+              <input id="genero" class="form-control" placeholder="Hombre, Mujer, Otro" type="text" onkeypress='return validateL(event);'> </div>
             <div class="form-group">
               <label>Edad</label>
-              <input id="edad" class="form-control" type="number"> </div>
+              <input id="edad" class="form-control" type="text" onkeypress='return validateN(event);'> </div>
             <div class="form-group">
               <label>Contraseña</label>
               <input id="pass" class="form-control" type="password"></div>
             <div class="form-group">
               <label>Telefono Casa</label>
-              <input id="phone" class="form-control" placeholder="p. ej. 64897412" type="number"> </div>
+              <input id="phone" class="form-control" placeholder="p. ej. 64897412" type="text" onkeypress='return validateN(event);'> </div>
             <div class="form-group">
               <label>Telefono Movil</label>
-              <input id="mphone" class="form-control" placeholder="p. ej. 5578123894" type="number"> </div>
+              <input id="mphone" class="form-control" placeholder="p. ej. 5578123894" type="text" onkeypress='return validateN(event);'> </div>
             <div class="form-group">
               <label>Direccion</label>
               <input id="address" class="form-control" placeholder="Direccion" type="text"> </div>

@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: tutorial-spring-boot
 Implementation-Version: 0.1.0
-Built-By: artur
+Built-By: pedro
 Implementation-Vendor-Id: org.springframework
-Build-Jdk: 1.8.0_181
+Build-Jdk: 1.8.0_171
 Implementation-URL: http://projects.spring.io/spring-boot/tutorial-spr
  ing-boot/
 Created-By: Maven Integration for Eclipse
